@@ -40,20 +40,17 @@ public struct Will has key, store {
         name: String,
     }
 
-    /// Stores an encrypted private key with access conditions.
    public struct EncryptedKey has store {
         asset_id: address, 
         encrypted_data: vector<u8>, 
         access_granted: bool,
     }
 
-    /// Tracks verification of the owner's passing (MVP: admin-driven).
    public struct Verification has store, copy, drop {
         verified_by: address, // Admin or oracle
         timestamp: u64,
     }
 
-    /// Admin capability for verification and platform management.
    public struct AdminCap has key {
         id: UID,
     }
@@ -65,7 +62,6 @@ public struct Will has key, store {
         verification_status: Option<Verification>,
     }
 
-    // === Events ===
 
    public struct WillCreated has copy, drop {
         will_id: address,
