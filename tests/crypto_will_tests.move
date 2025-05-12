@@ -1,8 +1,7 @@
 #[test_only]
 module crypto_will::crypto_will_tests;
 
-use crypto_will::will::{
-    Self, Will, AdminCap};
+use crypto_will::will::{Self, Will, AdminCap};
 use sui::coin::{Self, Coin};
 use sui::sui::SUI;
 use sui::test_scenario::{Self, Scenario};
@@ -34,7 +33,6 @@ fun mint_sui_coin(scenario: &mut Scenario, amount: u64, recipient: address): Coi
     test_scenario::take_from_sender<Coin<SUI>>(scenario)
 }
 
-// Helper function to create an AdminCap for testing
 fun create_admin_cap(scenario: &mut Scenario) {
     test_scenario::next_tx(scenario, ADMIN);
     {
